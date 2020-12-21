@@ -140,11 +140,66 @@
     <div class="post-content ">
         <h4 id="1-安装及配置"><a href="#1-安装及配置" class="headerlink" title="1. 安装及配置"></a>1. 安装及配置</h4><p>1.1 下载、解压、编译Redis<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://download.redis.io/releases/redis-6.0.6.tar.gz</span><br><span class="line">$ tar xzf redis-6.0.6.tar.gz</span><br><span class="line">$ cd redis-6.0.6</span><br></pre></td></tr></table></figure></p>
 <p>1.2 编译、安装文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">安装目录  /usr/local/redis</span><br><span class="line">make install PREFIX=/usr/local/redis</span><br></pre></td></tr></table></figure></p>
-<p>如果make出现如下错误<br>：<img src="https://my-life.gitee.io/mkphotorepository/202012/001.png" alt="alt "></p>
+<p>如果make出现如下错误:</p>
+<p><img src="https://my-life.gitee.io/mkphotorepository/202012/001.png" alt="alt "></p>
 <p>更新c++版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 查看gcc版本是否在5.3以上，centos7.6默认安装4.8.5</span><br><span class="line">gcc -v</span><br><span class="line"># 升级gcc到5.3及以上,如下：</span><br><span class="line">升级到gcc 9.3：</span><br><span class="line">yum -y install centos-release-scl</span><br><span class="line">yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils</span><br><span class="line">scl enable devtoolset-9 bash</span><br><span class="line">需要注意的是scl命令启用只是临时的，退出shell或重启就会恢复原系统gcc版本。</span><br><span class="line">如果要长期使用gcc 9.3的话：</span><br><span class="line"> </span><br><span class="line">echo &quot;source /opt/rh/devtoolset-9/enable&quot; &gt;&gt;/etc/profile</span><br><span class="line">这样退出shell重新打开就是新版的gcc了</span><br><span class="line">以下其他版本同理，修改devtoolset版本号即可。</span><br></pre></td></tr></table></figure></p>
 <p>1.3 进入到/usr/local/redis目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir cluster</span><br></pre></td></tr></table></figure></p>
 <p>1.4 复制6个redis.conf到cluster目录，并修改conf文件配置（修改配置如下）</p>
-<p>1.5 config配置<br>参数    |   注释<br>——– | ——<br>port 6379  |    端口6379,6380,6381<br>bind 本机ip    | 默认ip为127.0.0.1 需要改为其他节点机器可访问的ip 否则创建集群时无法访问对应的端口，无法创建集群<br>daemonize yes |    redis后台运行<br>pidfile /var/run/redis_6379.pid    | pidfile文件对应6379,6380,6381<br>cluster-enabled yes | 开启集群 把注释#去掉<br>cluster-config-file nodes_6379.conf    | 集群的配置 配置文件首次启动自动生成6379,6380,6381<br>cluster-node-timeout 15000 | 请求超时 默认15秒，可自行设置<br>appendonly yes | aof日志开启 有需要就开启，它会每次写操作都记录一条日志　<br>maxmemory 7516192768 |    限制内存在7G<br>masterauth | 123456  如果master服务器设置有密码则需要配置masterauth参数(集群服务各个节点同步数据用)。<br>requirepass    | 123456 访问reids服务密码 </p>
+<p>1.5 config配置</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>port 6379</td>
+<td>端口6379,6380,6381</td>
+</tr>
+<tr>
+<td>bind 本机ip</td>
+<td>默认ip为127.0.0.1 需要改为其他节点机器可访问的ip 否则创建集群时无法访问对应的端口，无法创建集群</td>
+</tr>
+<tr>
+<td>daemonize yes</td>
+<td>redis后台运行</td>
+</tr>
+<tr>
+<td>pidfile /var/run/redis_6379.pid</td>
+<td>pidfile文件对应6379,6380,6381</td>
+</tr>
+<tr>
+<td>cluster-enabled yes</td>
+<td>开启集群 把注释#去掉</td>
+</tr>
+<tr>
+<td>cluster-config-file nodes_6379.conf</td>
+<td>集群的配置 配置文件首次启动自动生成6379,6380,6381</td>
+</tr>
+<tr>
+<td>cluster-node-timeout 15000</td>
+<td>请求超时 默认15秒，可自行设置</td>
+</tr>
+<tr>
+<td>appendonly yes</td>
+<td>aof日志开启 有需要就开启，它会每次写操作都记录一条日志　</td>
+</tr>
+<tr>
+<td>maxmemory 7516192768</td>
+<td>限制内存在7G</td>
+</tr>
+<tr>
+<td>masterauth</td>
+<td>123456  如果master服务器设置有密码则需要配置masterauth参数(集群服务各个节点同步数据用)。</td>
+</tr>
+<tr>
+<td>requirepass</td>
+<td>123456 访问reids服务密码 </td>
+</tr>
+</tbody>
+</table>
 <p>1.6 创建服务启动脚本<br>创建redis-start.sh，并写入如下脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">./node1/redis-server ./node1/redis.conf &amp;</span><br><span class="line">./node2/redis-server ./node2/redis.conf &amp;</span><br><span class="line">./node3/redis-server ./node3/redis.conf &amp;</span><br><span class="line">./node4/redis-server ./node4/redis.conf &amp;</span><br><span class="line">./node5/redis-server ./node5/redis.conf &amp;</span><br><span class="line">./node6/redis-server ./node6/redis.conf &amp;</span><br></pre></td></tr></table></figure></p>
 <p>赋予可执行权限并启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod -x ./redis-start.sh</span><br><span class="line">./redis-start.sh</span><br></pre></td></tr></table></figure></p>
 <h4 id="2-创建集群"><a href="#2-创建集群" class="headerlink" title="2.创建集群"></a>2.创建集群</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./redis-cli --cluster create  127.0.0.1:6379 127.0.0.1:6380 127.0.0.1:6381 127.0.0.1:6382 127.0.0.1:6383 127.0.0.1:6384 -a 123456 --cluster-replicas 1</span><br></pre></td></tr></table></figure>
