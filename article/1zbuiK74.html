@@ -11,7 +11,7 @@
 
     <title>
         
-        
+        CentOS7 上安装 Zookeeper-3.4.9 服务 - undefined
         
     </title>
 
@@ -53,7 +53,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>HOME</span>
@@ -88,6 +88,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#安装zookeeper服务"><span class="toc-text">安装zookeeper服务</span></a></li></ol>
+</div>
+    
 </div>
 
 
@@ -112,181 +116,57 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 576px">
-    
-    <div class="post-preview">
-        <div class="post-time">2020-07-03</div>
-        <div class="post-info">
-            <a href="/article/1gKJmx.html">
-                <h3>
-                    Jenkins SSH远程部署Maven jar包
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#jenkins" title="jenkins">jenkins</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        CentOS7 上安装 Zookeeper-3.4.9 服务
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-22</div>
-        <div class="post-info">
-            <a href="/article/mq6lmq.html">
-                <h3>
-                    java通过URL页面转为PDF
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#java" title="java">java</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-04-09 16:28:51</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Zk" title="Zk">Zk</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-09</div>
-        <div class="post-info">
-            <a href="/article/zk683h.html">
-                <h3>
-                    kibana-Es常用命令
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Es" title="Es">Es</a>
-                <span>/</span>
-                
-                
-            </p>
+    <div class="post-content ">
+        <h5 id="安装zookeeper服务"><a href="#安装zookeeper服务" class="headerlink" title="安装zookeeper服务"></a>安装zookeeper服务</h5><ol>
+<li>mkdir -p /usr/local/services/zookeeper   #创建zk安装目录 </li>
+<li>cd /usr/local/services/zookeeper </li>
+<li>wget <a href="https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz</a>  #下载zookeeper-3.4.14.tar.gz</li>
+<li>tar -zxvf zookeeper-3.4.14.tar.gz  #解压缩</li>
+<li>cd /usr/local/services/zookeeper/zookeeper-3.4.14 </li>
+<li>创建数据及日志文件夹<blockquote>
+<p>mkdir data logs </p>
+</blockquote>
+</li>
+<li>复制 zoo_sample.cfg 文件的并命名为为 zoo.cfg：<br><blockquote>
+<p>cp zoo_sample.cfg zoo.cfg</p>
+</blockquote>
+</li>
+<li>更改配置<br>vim zoo.cfg<br><img src="https://my-life.gitee.io/mkphotorepository/202004/微信截图_20200422175327.png" alt="alt "></li>
+<li>启动 ../bin/zkServer.sh start  停止 ../bin/zkServer.sh stop 重启  ../bin/zkServer.sh restart</li>
+</ol>
+
+        
+        <br />
+        <div id="comment-container">
         </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-09</div>
-        <div class="post-info">
-            <a href="/article/1zbuiK74.html">
-                <h3>
-                    CentOS7 上安装 Zookeeper-3.4.9 服务
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Zk" title="Zk">Zk</a>
-                <span>/</span>
-                
-                
-            </p>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
         </div>
+
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-03</div>
-        <div class="post-info">
-            <a href="/article/z05qax.html">
-                <h3>
-                    Linux安装windows字体
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#linux" title="linux">linux</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2019-12-24</div>
-        <div class="post-info">
-            <a href="/article/5c5pzp.html">
-                <h3>
-                    spring jdbcTemplate批量插入数据
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#spring" title="spring">spring</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2019-12-24</div>
-        <div class="post-info">
-            <a href="/article/a723dw.html">
-                <h3>
-                    java递归处理TreeView无限节点数据
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#java" title="java">java</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2019-12-24</div>
-        <div class="post-info">
-            <a href="/article/a72303.html">
-                <h3>
-                    poi通过事件驱动模式sax解析大excel文件
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#POI" title="POI">POI</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
 </div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/">&larr; Newer Posts</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/page/3/">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
 
     </div>
 </div>
@@ -357,7 +237,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
