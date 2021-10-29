@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        jenkins Linux环境安装并配置 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> sometimes code， sometimes design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>FENG.M</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%AE%80%E4%BB%8B"><span class="toc-text">一、简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83"><span class="toc-text">二、准备环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%85"><span class="toc-text">三、安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%85%8D%E7%BD%AE%E6%8F%92%E4%BB%B6"><span class="toc-text">四、配置插件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E9%85%8D%E7%BD%AEJdk%E3%80%81Git%E5%92%8CMaven"><span class="toc-text">五、配置Jdk、Git和Maven</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> sometimes code， sometimes design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        jenkins Linux环境安装并配置
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-07-14 15:19:01</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#jenkins" title="jenkins">jenkins</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h4 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h4><p>Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作。</p>
+<h4 id="二、准备环境"><a href="#二、准备环境" class="headerlink" title="二、准备环境"></a>二、准备环境</h4><ul>
+<li>jdk1.8+</li>
+<li>Maven</li>
+<li>jenkins官网下载war包 <a target="_blank" rel="noopener" href="https://www.jenkins.io/zh/download/">https://www.jenkins.io/zh/download/</a></li>
+</ul>
+<h4 id="三、安装"><a href="#三、安装" class="headerlink" title="三、安装"></a>三、安装</h4><p>(1)前系统需要求已具备jdk环境<br/></p>
+<p>(2)可放置tomcate webapp目录下启动或使用nohup命令启动</p>
+<p><font color="green">notice：jenkins默认安装及配置目录在/root/.jenkins,可手动设置Jenkins环境变量更改。</font></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile </span><br><span class="line">#末尾处追加</span><br><span class="line">export JENKINS_HOME=/usr/local/jenkins</span><br><span class="line">/jenkins_home</span><br><span class="line">#使其生效</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#本次使用nohup启动</span><br><span class="line">nohup java -jar jenkins.war --httpPort=8081 &amp;&gt;jenkins.log&amp; tail -f jenkins.log</span><br></pre></td></tr></table></figure>
+<p>浏览器输入<a href="http://ip:设置的端口，操作如下图">http://ip:设置的端口，操作如下图</a><br><img src="https://my-life.gitee.io/mkphotorepository/202007/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200706141917.png" alt="alt "></p>
+<p>选择插件安装<br><img src="https://my-life.gitee.io/mkphotorepository/202007/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200714154346.png" alt="alt "><br><img src="https://my-life.gitee.io/mkphotorepository/202007/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200714173912.png" alt="alt "><br>jenkins默认走国外镜像所以初始化插件需要一定的时间。<br><img src="https://my-life.gitee.io/mkphotorepository/202007/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200714174018.png" alt="alt "></p>
+<p>创建第一个管理员账号<br><img src="https://my-life.gitee.io/mkphotorepository/202007/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200714155642.png" alt="alt "> </p>
+<p>配置实例(默认即可)<br><img src="https://my-life.gitee.io/mkphotorepository/202007/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200714155755.png" alt="alt "> </p>
+<p>初始化完成后所看到的jenkins首页，此时代表安装成功！<br><img src="https://my-life.gitee.io/mkphotorepository/202007/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200714155920.png" alt="alt "></p>
+<h4 id="四、配置插件"><a href="#四、配置插件" class="headerlink" title="四、配置插件"></a>四、配置插件</h4><p>(1)安装插件前需配置国内镜像</p>
+<p>从首页菜单进入， Manage Jenkins-&gt; Manage Plugins-&gt; Advanced，设置好URL后点击”Check now”。<br><img src="https://my-life.gitee.io/mkphotorepository/202007/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200714162359.png" alt="alt "><br><font color="green">镜像URL：</font><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>
+<p>(2)在当前页选择”Available”tab项<br>搜索框输入并选择插件安装。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#显示语言中文</span><br><span class="line">Localization: Chinese (Simplified)</span><br><span class="line">Publish Over SSH</span><br><span class="line">Maven Integration plugin </span><br></pre></td></tr></table></figure>
+<p>示例:<br><img src="https://my-life.gitee.io/mkphotorepository/202007/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200714163233.png" alt="alt "><br><img src="https://my-life.gitee.io/mkphotorepository/202007/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200714165154.png" alt="alt "><br><font color="green">安装完成后点击”Restart Jenkins…”复选框重启即可。</font></p>
+<h4 id="五、配置Jdk、Git和Maven"><a href="#五、配置Jdk、Git和Maven" class="headerlink" title="五、配置Jdk、Git和Maven"></a>五、配置Jdk、Git和Maven</h4><p>从首页菜单进入， Manage Jenkins-&gt; Global Tool Configuration<br><img src="https://my-life.gitee.io/mkphotorepository/202007/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200714175243.png" alt="alt "><br><img src="https://my-life.gitee.io/mkphotorepository/202007/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200714175430.png" alt="alt "><br><img src="https://my-life.gitee.io/mkphotorepository/202007/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200714175559.png" alt="alt "></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/2561808975">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/My-Life123">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+	    <span>FRIENDLYLINk</span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://cnsyear.gitee.io/">趙小傑~～</a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012417405">10000guo</a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://blog.linsans.cn">Linsans</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

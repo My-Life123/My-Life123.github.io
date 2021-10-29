@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        java通过URL页面转为PDF - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> sometimes code， sometimes design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>FENG.M</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85wkhtmltopdf%E6%8F%92%E4%BB%B6"><span class="toc-text">安装wkhtmltopdf插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%88%B0linux"><span class="toc-text">安装到linux</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%88%B0windows"><span class="toc-text">安装到windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E8%B0%83%E7%94%A8"><span class="toc-text">java调用</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> sometimes code， sometimes design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        java通过URL页面转为PDF
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-04-22 18:04:30</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#java" title="java">java</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="安装wkhtmltopdf插件"><a href="#安装wkhtmltopdf插件" class="headerlink" title="安装wkhtmltopdf插件"></a>安装wkhtmltopdf插件</h3><p>1.wkhtmltopdf官网(<a target="_blank" rel="noopener" href="https://wkhtmltopdf.org/downloads.html)%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8C%85">https://wkhtmltopdf.org/downloads.html)下载安装包</a>; </p>
+<p><img src="https://my-life.gitee.io/mkphotorepository/201912/20191218181209.png" alt="alt wkhtmltopdf官网截图"></p>
+<h4 id="安装到linux"><a href="#安装到linux" class="headerlink" title="安装到linux"></a>安装到linux</h4><ol>
+<li>上传到linux服务器；</li>
+<li>解压：<br>Ubuntu:dpkg -i wkhtmltox_0.12.5-1.trusty_amd64.deb；<br>Centos:rpm -ivh wkhtmltox-0.12.5-1.centos7.x86_64.rpm；</li>
+<li>安装依赖<br/><br>yum install -y fontconfig libX11 libXext libXrender libjpeg libpng xorg-x11-fonts-75dpi xorg-x11-fonts-Type1 openssl</li>
+<li>安装windows字体参考地址：<a href="http://blog.cnsyear.cn/article/z05qax.html">http://blog.cnsyear.cn/article/z05qax.html</a></li>
+</ol>
+<h3 id="安装到windows"><a href="#安装到windows" class="headerlink" title="安装到windows"></a>安装到windows</h3><p>1.下载win32或win64版本解压即可</p>
+<p><img src="https://my-life.gitee.io/mkphotorepository/201912/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191223153105.png" alt="alt "></p>
+<h3 id="java调用"><a href="#java调用" class="headerlink" title="java调用"></a>java调用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> String wkhtmltopdfPath=<span class="string">&quot;F:\wkhtmltopdf\bin\wkhtmltopdf.exe&quot;</span>;</span><br><span class="line"> String url=<span class="string">&quot;https://www.baidu.com&quot;</span>;</span><br><span class="line"> Runtime rt = Runtime.getRuntime();</span><br><span class="line"> String command = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="comment">//判断当前操作系统</span></span><br><span class="line"> String os = System.getProperty(<span class="string">&quot;os.name&quot;</span>);</span><br><span class="line"> <span class="keyword">if</span>(os.toLowerCase().startsWith(<span class="string">&quot;win&quot;</span>))&#123;  <span class="comment">// for windows</span></span><br><span class="line">     command =  wkhtmltopdfPath+ <span class="string">&quot; \&quot;&quot;</span> + url + <span class="string">&quot;\&quot;  &quot;</span>+ \pdfPath\xxx.pdf;</span><br><span class="line"> &#125;<span class="keyword">else</span>&#123;  <span class="comment">// for linux</span></span><br><span class="line">     command = <span class="string">&quot; wkhtmltopdf &#x27;&quot;</span> +url+ <span class="string">&quot;&#x27; &quot;</span>+/pdfPath/xxx.pdf;</span><br><span class="line"> &#125;</span><br><span class="line"> Process p = rt.exec(command);</span><br><span class="line"> InputStream is = p.getInputStream();</span><br><span class="line"> BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(is));</span><br><span class="line"> StringBuffer sbf = <span class="keyword">new</span> StringBuffer();</span><br><span class="line"> String tmp = <span class="string">&quot;&quot;</span>;</span><br><span class="line"> <span class="keyword">while</span> ((tmp = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">     sbf.append(tmp);</span><br><span class="line"> &#125;</span><br><span class="line"> String resultStr = sbf.toString();  <span class="comment">//执行command命令返回的结果</span></span><br></pre></td></tr></table></figure>
+<p><em><font color='red'>注：在windows或linux控制台窗口下执行所对应的”command”与上面代码效果一致</font></em></p>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/328e203a51a6">https://www.jianshu.com/p/328e203a51a6</a></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/2561808975">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/My-Life123">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+	    <span>FRIENDLYLINk</span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://cnsyear.gitee.io/">趙小傑~～</a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012417405">10000guo</a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://blog.linsans.cn">Linsans</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Web关闭页面时发送 Ajax 请求 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> sometimes code， sometimes design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>FENG.M</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC"><span class="toc-text">1.事件监听</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%AF%B7%E6%B1%82%E5%8F%91%E9%80%81"><span class="toc-text">2.请求发送</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%A1%881-%E5%8F%91%E9%80%81%E5%90%8C%E6%AD%A5%E7%9A%84ajax%E8%AF%B7%E6%B1%82"><span class="toc-text">方案1: 发送同步的ajax请求</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%A1%882%EF%BC%9A%E5%8F%91%E9%80%81%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%EF%BC%8C%E5%B9%B6%E4%B8%94%E5%9C%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BF%BD%E7%95%A5ajax%E7%9A%84abort"><span class="toc-text">方案2：发送异步请求，并且在服务端忽略ajax的abort</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%A1%883%EF%BC%9A%E4%BD%BF%E7%94%A8navigator-sendBeacon%E5%8F%91%E9%80%81%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82"><span class="toc-text">方案3：使用navigator.sendBeacon发送异步请求</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> sometimes code， sometimes design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Web关闭页面时发送 Ajax 请求
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-08-20 11:01:55</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>有时候我们需要在用户离开页面的时候，做一些上报来记录用户行为。又或者是发送服务器ajax请求，通知服务器用户已经离开，比如直播间内的退房操作。<br>本文主要分两部分来讲解怎么完成退出行为的上报。</p>
+<h4 id="1-事件监听"><a href="#1-事件监听" class="headerlink" title="1.事件监听"></a>1.事件监听</h4><p>浏览器有两个事件可以用来监听页面关闭，beforeunload和unload。<br>beforeunload是在文档和资源将要关闭的时候调用的， 这时候文档还是可见的，并且在这个关闭的事件还是可以取消的。比如下面这种写法就会让用户导致在刷新或者关闭页面时候，有个弹窗提醒用户是否关闭。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&quot;beforeunload&quot;, function (event) &#123;</span><br><span class="line">  // Cancel the event as stated by the standard.</span><br><span class="line">  event.preventDefault();</span><br><span class="line">  // Chrome requires returnValue to be set.</span><br><span class="line">  event.returnValue = &#x27;&#x27;;</span><br><span class="line">&#125;);</span><br><span class="line">//或者</span><br><span class="line"> window.onbeforeunload =closeTheWindow;  //监听浏览器窗口关闭事件</span><br><span class="line"> function closeTheWindow(e)&#123;</span><br><span class="line">     //Do something about it...</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>unload则是在页面已经正在被卸载时发生，此时文档所处的状态是：1.所有资源仍存在（图片，iframe等）；2.对于用户所有资源不可见；3.界面交互无效（window.open, alert, confirm 等）；4.错误不会停止卸载文档的过程。<br>基于以上两个方法就可以实现对页面关闭的事件监听了，为了稳妥，可以两个事件都监听。然后对监听函数做处理，让关闭事件只调用一次。</p>
+<h4 id="2-请求发送"><a href="#2-请求发送" class="headerlink" title="2.请求发送"></a>2.请求发送</h4><p>有了上面的监听，事情只完成了一半，如果我们在监听中直接发送ajax请求，就会发现请求被浏览器abort了，无法发送出去。在页面卸载的时候，浏览器并不能保证异步的请求能够成功发出去。<br>我们有几种方式可以解决这个问题：</p>
+<h5 id="方案1-发送同步的ajax请求"><a href="#方案1-发送同步的ajax请求" class="headerlink" title="方案1: 发送同步的ajax请求"></a>方案1: 发送同步的ajax请求</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var oAjax = new XMLHttpRequest();</span><br><span class="line">oAjax.open(&#x27;POST&#x27;, url + &#x27;/user/register&#x27;, false);//false表示同步请求</span><br><span class="line">oAjax.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);</span><br><span class="line">oAjax.onreadystatechange = function() &#123;</span><br><span class="line">    if (oAjax.readyState == 4 &amp;&amp; oAjax.status == 200) &#123;</span><br><span class="line">        var data = JSON.parse(oAjax.responseText);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        console.log(oAjax);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">oAjax.send(&#x27;a=1&amp;b=2&#x27;);</span><br></pre></td></tr></table></figure>
+<p>这种方式虽然有效，但是用户需要等待请求结束才可以关闭页面。对用户的体验不好。</p>
+<h5 id="方案2：发送异步请求，并且在服务端忽略ajax的abort"><a href="#方案2：发送异步请求，并且在服务端忽略ajax的abort" class="headerlink" title="方案2：发送异步请求，并且在服务端忽略ajax的abort"></a>方案2：发送异步请求，并且在服务端忽略ajax的abort</h5><p>虽然异步请求会被浏览器abort，但是如果服务端可以忽略abort，仍然正常执行，也是可以的。比如PHP有ignore_user_abort函数可以忽略abort。这样需要改造后台，一般不太可行..</p>
+<h5 id="方案3：使用navigator-sendBeacon发送异步请求"><a href="#方案3：使用navigator-sendBeacon发送异步请求" class="headerlink" title="方案3：使用navigator.sendBeacon发送异步请求"></a>方案3：使用<font color="#ff502c">navigator.sendBeacon</font>发送异步请求</h5><p>根据MDN的介绍：</p>
+<blockquote>
+</blockquote>
+<p>这个方法主要用于满足 统计和诊断代码 的需要，这些代码通常尝试在卸载（unload）文档之前向web服务器发送数据。过早的发送数据可能导致错过收集数据的机会。然而， 对于开发者来说保证在文档卸载期间发送数据一直是一个困难。因为用户代理通常会忽略在卸载事件处理器中产生的异步 XMLHttpRequest 。</p>
+<p>从介绍上可以看出，这个方法就是用来在用户离开时发请求的。非常适合这种场景。<br>使用方式是这样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator.sendBeacon(url [, data]);</span><br></pre></td></tr></table></figure>
+<p>sendBeacon支持发送的data可以是ArrayBufferView, Blob, DOMString, 或者 FormData 类型的数据。<br>下面是几种使用sendBeacon发送请求的方式，可以修改header和内容的格式，因为一般和服务器的通信方式都是固定的，如果修改了header或者内容，服务器就无法正常识别出来了。<br>（1）使用Blob来发送<br>使用blob发送的好处是可以自己定义内容的格式和header。比如下面这种设置方式，就是可以设置content-type为application/x-www-form-urlencoded。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">blob = new Blob([`room_id=123`], &#123;type : &#x27;application/x-www-form-urlencoded&#x27;&#125;);</span><br><span class="line">navigator.sendBeacon(&quot;/cgi-bin/leave_room&quot;, blob);</span><br></pre></td></tr></table></figure>
+<p>（2）使用FormData对象，但是这时content-type会被设置成”multipart/form-data”。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fd = new FormData();</span><br><span class="line">fd.append(&#x27;room_id&#x27;, 123);</span><br><span class="line">navigator.sendBeacon(&quot;/cgi-bin/leave_room&quot;, fd);</span><br></pre></td></tr></table></figure>
+<p><font color='red' size='2px'>注:此方式为POST请求</font></p>
+<p>（3）数据也可以使用URLSearchParams 对象，content-type会被设置成”text/plain;charset=UTF-8” 。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var params = new URLSearchParams(&#123; room_id: 123 &#125;)</span><br><span class="line">navigator.sendBeacon(&quot;/cgi-bin/leave_room&quot;, params);</span><br></pre></td></tr></table></figure>
+<p>通过尝试，可以发现使用blob发送比较方便，内容的设置也比较灵活，如果发送的消息抓包后发现后台没有识别出来，可以尝试修改内容的string或者header，来找到合适的方式发送请求。</p>
+<p>参考链接：<br><font color='#007fff'>掘金：</font><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903790575878157">https://juejin.im/post/6844903790575878157</a></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/2561808975">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/My-Life123">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+	    <span>FRIENDLYLINk</span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://cnsyear.gitee.io/">趙小傑~～</a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012417405">10000guo</a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://blog.linsans.cn">Linsans</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
