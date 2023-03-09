@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Docker的使用 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> sometimes code， sometimes design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>FENG.M</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">目录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81docker%E5%AE%89%E8%A3%85"><span class="toc-text">一、docker安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Mac-OS-Docker%E5%AE%89%E8%A3%85"><span class="toc-text">Mac OS Docker安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Docker%E4%BD%BF%E7%94%A8"><span class="toc-text">二、Docker使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Docker-Dockerfile"><span class="toc-text">Docker Dockerfile</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3"><span class="toc-text">指令详解</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Docker-Compose"><span class="toc-text">Docker Compose</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#openjdk-8%E6%94%AF%E6%8C%81AWT"><span class="toc-text">openjdk-8支持AWT</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81Docker%E5%AE%9E%E4%BE%8B"><span class="toc-text">三、Docker实例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E9%97%B4%E7%BD%91%E7%BB%9C%E8%AE%BF%E9%97%AE%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85"><span class="toc-text">容器间网络访问工具安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#minio%E5%AE%89%E8%A3%85"><span class="toc-text">minio安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#postgresql%E5%AE%89%E8%A3%85"><span class="toc-text">postgresql安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rabbitMq%E5%AE%89%E8%A3%85"><span class="toc-text">rabbitMq安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql%E5%AE%89%E8%A3%85"><span class="toc-text">mysql安装</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> sometimes code， sometimes design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Docker的使用
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2023-03-09 15:19:01</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#docker" title="docker">docker</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h4>目录</h4>
+[toc] 
+
+
+<h3 id="一、docker安装"><a href="#一、docker安装" class="headerlink" title="一、docker安装"></a><span id = "一、">一、docker安装</span></h3><h4 id="Mac-OS-Docker安装"><a href="#Mac-OS-Docker安装" class="headerlink" title="Mac OS Docker安装"></a><span id = "1.1">Mac OS Docker安装</span></h4><p>官网地址：<a target="_blank" rel="noopener" href="https://www.docker.com/">https://www.docker.com/</a> 根据对应版本下载</p>
+<h3 id="二、Docker使用"><a href="#二、Docker使用" class="headerlink" title="二、Docker使用"></a><span id = "二、">二、Docker使用</span></h3><h4 id="Docker-Dockerfile"><a href="#Docker-Dockerfile" class="headerlink" title="Docker Dockerfile"></a><span id = "2.1">Docker Dockerfile</span></h4><p>部署一个java应用为列，Dockerfile 文件编写:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">FROM eclipse-temurin:8-jdk-jammy</span><br><span class="line"></span><br><span class="line">COPY  javaWeb.jar  /usr/local/javaWeb.jar</span><br><span class="line"></span><br><span class="line">RUN bash -c &quot;touch /usr/local/javaWeb.jar&quot;</span><br><span class="line"></span><br><span class="line">EXPOSE 8010</span><br><span class="line"></span><br><span class="line">ENTRYPOINT [&quot;java&quot;, &quot;-jar&quot;, &quot;/usr/local/javaWeb.jar&quot;]</span><br></pre></td></tr></table></figure>
+<p><strong>FROM</strong>： 定制的镜像都是基于 FROM 的镜像, 初始化镜像中的环境</p>
+<p><strong>RUN</strong>：用于执行后面跟着的命令行命令。有以下俩种格式：<br>shell 格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RUN &lt;命令行命令&gt;</span><br><span class="line"># &lt;命令行命令&gt; 等同于，在终端操作的 shell 命令。</span><br></pre></td></tr></table></figure>
+<p>exec 格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RUN &lt;命令行命令&gt;</span><br><span class="line"># &lt;命令行命令&gt; 等同于，在终端操作的 shell 命令。</span><br></pre></td></tr></table></figure>
+<p>注意：Dockerfile 的指令每执行一次都会在 docker 上新建一层。所以过多无意义的层，会造成镜像膨胀过大。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FROM centos</span><br><span class="line">RUN yum -y install wget</span><br><span class="line">RUN wget -O redis.tar.gz &quot;http://download.redis.io/releases/redis-5.0.3.tar.gz&quot;</span><br><span class="line">RUN tar -xvf redis.tar.gz</span><br></pre></td></tr></table></figure>
+<p>以上执行会创建 3 层镜像。可简化为以下格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FROM centos</span><br><span class="line">RUN yum -y install wget \</span><br><span class="line">    &amp;&amp; wget -O redis.tar.gz &quot;http://download.redis.io/releases/redis-5.0.3.tar.gz&quot; \</span><br><span class="line">    &amp;&amp; tar -xvf redis.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>如上，以 &amp;&amp; 符号连接命令，这样执行后，只会创建 1 层镜像。</p>
+<p><strong>开始构建镜像</strong></p>
+<p>在 Dockerfile 文件的存放目录下，执行构建动作。</p>
+<p>以下示例，通过目录下的 Dockerfile 构建一个 javaWeb:v1（镜像名称:镜像版本）。</p>
+<blockquote>
+<p>docker build -t javaWeb:v1 .</p>
+</blockquote>
+<h5 id="指令详解"><a href="#指令详解" class="headerlink" title="指令详解"></a>指令详解</h5><ol>
+<li>COPY 复制指令，从上下文目录中复制文件或者目录到容器里指定路径。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">COPY hom* /mydir/</span><br><span class="line">COPY hom?.txt /mydir/</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>ADD 指令和 COPY 的使用格类似（同样需求下，官方推荐使用 COPY）。功能也类似，不同之处如下：</li>
+</ol>
+<ul>
+<li>ADD 的优点：在执行 &lt;源文件&gt; 为 tar 压缩文件的话，压缩格式为 gzip, bzip2 以及 xz 的情况下，会自动复制并解压到 &lt;目标路径&gt;。</li>
+<li>ADD 的优点：在执行 &lt;源文件&gt; 为 tar 压缩文件的话，压缩格式为 gzip, bzip2 以及 xz 的情况下，会自动复制并解压到 &lt;目标路径&gt;。</li>
+</ul>
+<ol start="3">
+<li>CMD 类似于 RUN 指令，用于运行程序，但二者运行的时间点不同:<blockquote>
+<p>CMD 在docker run 时运行。  RUN 是在 docker build。</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>作用</strong>：为启动的容器指定默认要运行的程序，程序运行结束，容器也就结束。CMD 指令指定的程序可被 docker run 命令行参数中指定要运行的程序所覆盖。</p>
+<p><strong>注意：</strong>如果 Dockerfile 中如果存在多个 CMD 指令，仅最后一个生效。</p>
+<p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CMD &lt;shell 命令&gt; </span><br><span class="line">CMD [&quot;&lt;可执行文件或命令&gt;&quot;,&quot;&lt;param1&gt;&quot;,&quot;&lt;param2&gt;&quot;,...] </span><br><span class="line">CMD [&quot;&lt;param1&gt;&quot;,&quot;&lt;param2&gt;&quot;,...]  # 该写法是为 ENTRYPOINT 指令指定的程序提供默认参数</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>ENTRYPOINT 类似于 CMD 指令，但其不会被 docker run 的命令行参数指定的指令所覆盖，而且这些命令行参数会被当作参数送给 ENTRYPOINT 指令指定的程序。</li>
+</ol>
+<p>但是, 如果运行 docker run 时使用了 –entrypoint 选项，将覆盖 ENTRYPOINT 指令指定的程序。</p>
+<p><strong>优点：</strong>在执行 docker run 的时候可以指定 ENTRYPOINT 运行所需的参数。</p>
+<p><strong>注意：</strong>如果 Dockerfile 中如果存在多个 ENTRYPOINT 指令，仅最后一个生效。</p>
+<p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ENTRYPOINT [&quot;&lt;executeable&gt;&quot;,&quot;&lt;param1&gt;&quot;,&quot;&lt;param2&gt;&quot;,...]</span><br></pre></td></tr></table></figure>
+<p>可以搭配 CMD 命令使用：一般是变参才会使用 CMD ，这里的 CMD 等于是在给 ENTRYPOINT 传参，以下示例会提到。</p>
+<p>示例：</p>
+<p>假设已通过 Dockerfile 构建了 nginx:test 镜像：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FROM nginx</span><br><span class="line"></span><br><span class="line">ENTRYPOINT [&quot;nginx&quot;, &quot;-c&quot;] # 定参</span><br><span class="line">CMD [&quot;/etc/nginx/nginx.conf&quot;] # 变参 </span><br></pre></td></tr></table></figure>
+
+
+<h4 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a><span id = "2.2">Docker Compose</span></h4><p>docker-compose.yml 配置示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># yaml 配置实例</span><br><span class="line">version: &#x27;3&#x27;</span><br><span class="line">services:</span><br><span class="line">  anysignws:</span><br><span class="line">    image: anysignws:latest</span><br><span class="line">    container_name: anysignws</span><br><span class="line">    environment:</span><br><span class="line">      TZ: Asia/Shanghai</span><br><span class="line">    ports:</span><br><span class="line">      - &#x27;8010:8010&#x27;</span><br><span class="line">    command: --net host</span><br><span class="line">  manager:</span><br><span class="line">    image: manager:latest</span><br><span class="line">    container_name: manager</span><br><span class="line">    ports:</span><br><span class="line">      - &#x27;8001:8000&#x27;</span><br></pre></td></tr></table></figure>
+<p>推送到镜像：</p>
+<blockquote>
+<p>docker-compose up        #控制台启动<br>docker-compose up -d     #后台启动</p>
+</blockquote>
+<h4 id="openjdk-8支持AWT"><a href="#openjdk-8支持AWT" class="headerlink" title="openjdk-8支持AWT"></a>openjdk-8支持AWT</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">FROM openjdk:8-jre-alpine3.9</span><br><span class="line"></span><br><span class="line">ENV TZ=Asia/Shanghai \</span><br><span class="line">    LANG=en_US.UTF-8</span><br><span class="line"></span><br><span class="line">RUN sed -i &#x27;s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g&#x27; /etc/apk/repositories \</span><br><span class="line">	#设置数据源</span><br><span class="line">    &amp;&amp; apk update \  </span><br><span class="line">	#更新最新本地镜像源</span><br><span class="line">    &amp;&amp; apk upgrade \ </span><br><span class="line">	#升级软件</span><br><span class="line">    &amp;&amp; apk add ca-certificates \</span><br><span class="line">    &amp;&amp; update-ca-certificates \</span><br><span class="line">    &amp;&amp; apk add --update tzdata \</span><br><span class="line">    &amp;&amp; cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \</span><br><span class="line">    &amp;&amp; echo &quot;Asia/Shanghai&quot; &gt; /etc/timezone \</span><br><span class="line">    &amp;&amp; apk add --update --no-cache busybox-extras iproute2 curl net-tools font-adobe-100dpi ttf-dejavu fontconfig  \</span><br><span class="line">    &amp;&amp; rm -rf /var/cache/apk/*</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、Docker实例"><a href="#三、Docker实例" class="headerlink" title="三、Docker实例"></a><span id = "三、">三、Docker实例</span></h3><h4 id="容器间网络访问工具安装"><a href="#容器间网络访问工具安装" class="headerlink" title="容器间网络访问工具安装"></a><span id = "3.1">容器间网络访问工具安装</span></h4><blockquote>
+<p>docker network create –subnet=172.15.0.0/16 tools-net</p>
+</blockquote>
+<h4 id="minio安装"><a href="#minio安装" class="headerlink" title="minio安装"></a><span id = "3.2">minio安装</span></h4><p>1.拉取镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull minio/minio</span><br></pre></td></tr></table></figure>
+
+<p>2.设置配置并运行镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> docker run \</span><br><span class="line">  -p 9000:9000 \</span><br><span class="line">  -p 9001:9001 \</span><br><span class="line">  --name minio1 \</span><br><span class="line">  -v /mnt/data:/data \</span><br><span class="line">  -e &quot;MINIO_ROOT_USER=AKIAIOSFODNN7EXAMPLE&quot; \</span><br><span class="line">  -e &quot;MINIO_ROOT_PASSWORD=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY&quot; \</span><br><span class="line">  quay.io/minio/minio server /data --console-address &quot;:9001&quot;</span><br><span class="line">Windows</span><br></pre></td></tr></table></figure>
+<h4 id="postgresql安装"><a href="#postgresql安装" class="headerlink" title="postgresql安装"></a><span id = "3.3">postgresql安装</span></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run --name postgres -v /Users/m_yf/soft/postgresql/data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=123456 -d -p 5432:5432 postgres:12.4</span><br><span class="line"></span><br><span class="line">#指定容器内访问</span><br><span class="line">docker run --net tools-net --ip 172.18.0.3  --restart always --name postgresql -e POSTGRES_PASSWORD=qwaszx12P! -p 5432:5432 -v D:\docker-work\postgresql:/var/lib/postgresql/data  -d postgres:12.4</span><br></pre></td></tr></table></figure>
+<h4 id="rabbitMq安装"><a href="#rabbitMq安装" class="headerlink" title="rabbitMq安装"></a><span id = "3.4">rabbitMq安装</span></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --hostname my-rabbit --name rabbit -v /Users/m_yf/soft/rabbitMq:/var/lib/rabbitmq -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=123456 -p 15672:15672 -p 5672:5672 rabbitmq:3-management</span><br></pre></td></tr></table></figure>
+<h4 id="mysql安装"><a href="#mysql安装" class="headerlink" title="mysql安装"></a><span id = "3.5">mysql安装</span></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --restart=unless-stopped -d --name mysql -v /Users/m_yf/soft/mysql/mysql8.0/conf/my.cnf:/etc/mysql/my.cnf -v  /Users/m_yf/soft/mysql/mysql8.0/data:/var/lib/mysql -p 3307:3307 -e MYSQL_ROOT_PASSWORD=123456 mysql</span><br></pre></td></tr></table></figure>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/2561808975">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/My-Life123">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+	    <span>FRIENDLYLINk</span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://cnsyear.gitee.io/">趙小傑~～</a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012417405">10000guo</a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://blog.linsans.cn">Linsans</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
