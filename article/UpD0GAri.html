@@ -191,7 +191,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/firewalld/zones/public.xml</span><br></pre></td></tr></table></figure>
 <h4 id="3、限制IP地址段"><a href="#3、限制IP地址段" class="headerlink" title="3、限制IP地址段"></a>3、限制IP地址段</h4><p>（1）如我们需要限制10.0.0.0-10.0.0.255这一整个段的IP，禁止他们访问</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-rich-rule=&quot;rule family=&quot;ipv4&quot; source address=&quot;10.0.0.0/24&quot; port protocol=&quot;tcp&quot; port=&quot;80&quot; reject&quot;</span><br></pre></td></tr></table></figure>
-<p>其中10.0.0.0/24表示为从10.0.0.0这个IP开始，24代表子网掩码为255.255.255.0，共包含256个地址，即从0-255共256个IP，即正好限制了这一整段的IP地址，具体的设置规则可参考下表<br><img src="https://my-life.gitee.io/mkphotorepository/202105/006.png" alt="alt "></p>
+<p>其中10.0.0.0/24表示为从10.0.0.0这个IP开始，24代表子网掩码为255.255.255.0，共包含256个地址，即从0-255共256个IP，即正好限制了这一整段的IP地址，具体的设置规则可参考下表<br><img src="https://cnsyear.cn/MkPhotoRepository/202105/006.png" alt="alt "></p>
 <p>（2）重新载入一下防火墙设置，使设置生效</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
 <p>（3）查看规则，确认是否生效</p>
